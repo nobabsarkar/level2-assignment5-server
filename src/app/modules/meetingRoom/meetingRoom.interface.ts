@@ -3,4 +3,5 @@ export type TMeetingRoom = {
   roomName: string;
   capacity: string;
   pricePerSlot: string;
+  role: string;
 };

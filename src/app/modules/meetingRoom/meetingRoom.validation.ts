@@ -6,6 +6,7 @@ const meetingRoomValidationSchema = z.object({
     roomName: z.string(),
     capacity: z.string(),
     pricePerSlot: z.string(),
+    role: z.string().default("USER"),
   }),
 });
 

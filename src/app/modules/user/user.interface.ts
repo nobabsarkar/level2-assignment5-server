@@ -4,5 +4,5 @@ export type TUser = {
   password: string;
   phone: string;
   address: string;
-  //   role: "user" | "admin";
+  role: "USER" | "ADMIN";
 };

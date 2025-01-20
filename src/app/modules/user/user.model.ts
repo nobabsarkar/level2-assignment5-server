@@ -11,11 +11,7 @@ const userSchema = new Schema<TUser>({
     unique: true,
   },
   address: { type: String, required: [true, "Address is Required"] },
-  //   role: {
-  //     type: String,
-  //     required: [true, "Role is required"],
-  //     enum: ["user", "admin"],
-  //   },
+  role: { type: String, default: "USER", enum: ["USER", "ADMIN"] },
 });
 
 export const User = model<TUser>("User", userSchema);
