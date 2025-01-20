@@ -14,13 +14,25 @@ const createMeetingRoom = catchAsync(async (req, res) => {
   });
 });
 
+// const meetingRoom = catchAsync(async (req, res) => {
+//   const result = await MeetingRoomServices.meetingRoomFromDB();
+
+//   sendResponse(res, {
+//     statusCode: StatusCodes.OK,
+//     success: true,
+//     message: "Meeting Room retrived successfully!",
+//     data: result,
+//   });
+// });
+
 const meetingRoom = catchAsync(async (req, res) => {
-  const result = await MeetingRoomServices.meetingRoomFromDB();
+  const { name } = req.query; // Extract 'name' from query string
+  const result = await MeetingRoomServices.meetingRoomFromDB(name as string); // Pass 'name' to the service
 
   sendResponse(res, {
     statusCode: StatusCodes.OK,
     success: true,
-    message: "Meeting Room retrived successfully!",
+    message: "Meeting room retrieved successfully!",
     data: result,
   });
 });

@@ -6,9 +6,20 @@ const createMeetingRoomIntoDB = async (payload: TMeetingRoom) => {
   return result;
 };
 
-const meetingRoomFromDB = async () => {
-  const result = await MeetingRoom.find();
-  return result;
+// const meetingRoomFromDB = async () => {
+//   const result = await MeetingRoom.find();
+//   return result;
+// };
+
+const meetingRoomFromDB = async (name: string = "") => {
+  if (name) {
+    // Find a single meeting room by name, case-insensitive
+    return await MeetingRoom.findOne({
+      roomName: { $regex: name, $options: "i" },
+    });
+  }
+  // If no name is provided, return all meeting rooms
+  return await MeetingRoom.find();
 };
 
 export const MeetingRoomServices = {
