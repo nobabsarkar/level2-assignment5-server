@@ -1,0 +1,31 @@
+import { StatusCodes } from "http-status-codes";
+import catchAsync from "../../utils/catchAsync";
+import sendResponse from "../../utils/sendResponse";
+import { MeetingRoomServices } from "./meetingRoom.service";
+
+const createMeetingRoom = catchAsync(async (req, res) => {
+  const result = await MeetingRoomServices.createMeetingRoomIntoDB(req.body);
+
+  sendResponse(res, {
+    statusCode: StatusCodes.OK,
+    success: true,
+    message: "Meeting Room created successfully!",
+    data: result,
+  });
+});
+
+const meetingRoom = catchAsync(async (req, res) => {
+  const result = await MeetingRoomServices.meetingRoomFromDB();
+
+  sendResponse(res, {
+    statusCode: StatusCodes.OK,
+    success: true,
+    message: "Meeting Room retrived successfully!",
+    data: result,
+  });
+});
+
+export const MeetingRoomControllers = {
+  meetingRoom,
+  createMeetingRoom,
+};
