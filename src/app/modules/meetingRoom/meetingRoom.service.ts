@@ -22,7 +22,13 @@ const meetingRoomFromDB = async (name: string = "") => {
   return await MeetingRoom.find();
 };
 
+const getSingleRoomFromDB = async (id: string) => {
+  const result = await MeetingRoom.findById(id);
+  return result;
+};
+
 export const MeetingRoomServices = {
   createMeetingRoomIntoDB,
   meetingRoomFromDB,
+  getSingleRoomFromDB,
 };

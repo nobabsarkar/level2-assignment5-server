@@ -8,7 +8,6 @@ const userSchema = new Schema<TUser>({
   phone: {
     type: String,
     required: [true, "Phone Number is Required"],
-    unique: true,
   },
   address: { type: String, required: [true, "Address is Required"] },
   role: { type: String, default: "USER", enum: ["USER", "ADMIN"] },

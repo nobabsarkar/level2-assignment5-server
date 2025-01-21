@@ -14,4 +14,6 @@ router.post(
 // router.get("/", MeetingRoomControllers.meetingRoom);
 router.get("/", MeetingRoomControllers.meetingRoom);
 
+router.get("/:id", MeetingRoomControllers.singleMeetingRoom);
+
 export const MeetingRoomRoutes = router;

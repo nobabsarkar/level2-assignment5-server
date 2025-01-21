@@ -37,7 +37,20 @@ const meetingRoom = catchAsync(async (req, res) => {
   });
 });
 
+const singleMeetingRoom = catchAsync(async (req, res) => {
+  const { id } = req.params;
+  const result = await MeetingRoomServices.getSingleRoomFromDB(id);
+
+  sendResponse(res, {
+    statusCode: StatusCodes.OK,
+    success: true,
+    message: "Meeting room retrived successfully!",
+    data: result,
+  });
+});
+
 export const MeetingRoomControllers = {
   meetingRoom,
   createMeetingRoom,
+  singleMeetingRoom,
 };
