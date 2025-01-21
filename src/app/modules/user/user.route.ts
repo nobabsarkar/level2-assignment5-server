@@ -8,8 +8,9 @@ const router = express.Router();
 router.post(
   "/register",
   validateRequest(userValidations.userValidationSchema),
-
   UserControllers.createUser
 );
+
+router.get("/:id", UserControllers.getSingleUser);
 
 export const AuthRoutes = router;
