@@ -27,9 +27,6 @@ const meetingRoomFromDB = async (query: Record<string, unknown>) => {
 
   const result = await filter.find();
   return result;
-
-  // const result = await MeetingRoom.find();
-  // return result;
 };
 
 const getSingleRoomFromDB = async (id: string) => {
