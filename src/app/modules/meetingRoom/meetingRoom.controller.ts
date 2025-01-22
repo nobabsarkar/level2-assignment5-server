@@ -14,20 +14,9 @@ const createMeetingRoom = catchAsync(async (req, res) => {
   });
 });
 
-// const meetingRoom = catchAsync(async (req, res) => {
-//   const result = await MeetingRoomServices.meetingRoomFromDB();
-
-//   sendResponse(res, {
-//     statusCode: StatusCodes.OK,
-//     success: true,
-//     message: "Meeting Room retrived successfully!",
-//     data: result,
-//   });
-// });
-
 const meetingRoom = catchAsync(async (req, res) => {
   const query = req.query;
-  const result = await MeetingRoomServices.meetingRoomFromDB(query); // Pass 'name' to the service
+  const result = await MeetingRoomServices.meetingRoomFromDB(query);
 
   sendResponse(res, {
     statusCode: StatusCodes.OK,
