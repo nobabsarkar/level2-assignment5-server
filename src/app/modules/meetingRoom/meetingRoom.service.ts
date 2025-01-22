@@ -11,15 +11,25 @@ const createMeetingRoomIntoDB = async (payload: TMeetingRoom) => {
 //   return result;
 // };
 
-const meetingRoomFromDB = async (name: string = "") => {
-  if (name) {
-    // Find a single meeting room by name, case-insensitive
-    return await MeetingRoom.findOne({
-      roomName: { $regex: name, $options: "i" },
-    });
-  }
-  // If no name is provided, return all meeting rooms
-  return await MeetingRoom.find();
+const meetingRoomFromDB = async (query: Record<string, unknown>) => {
+  const objQuery = { ...query };
+
+  const search = query.search || "";
+
+  const searchFilter = MeetingRoom.find({
+    roomName: { $regex: search, $options: "i" },
+  });
+
+  const excludeFields = ["search", "sort", "limit", "page", "fields"];
+  excludeFields.forEach((el) => delete objQuery[el]);
+
+  const filter = searchFilter.find(objQuery);
+
+  const result = await filter.find();
+  return result;
+
+  // const result = await MeetingRoom.find();
+  // return result;
 };
 
 const getSingleRoomFromDB = async (id: string) => {

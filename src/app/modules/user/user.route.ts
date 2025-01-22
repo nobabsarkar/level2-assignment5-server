@@ -11,6 +11,4 @@ router.post(
   UserControllers.createUser
 );
 
-router.get("/:id", UserControllers.getSingleUser);
-
 export const AuthRoutes = router;

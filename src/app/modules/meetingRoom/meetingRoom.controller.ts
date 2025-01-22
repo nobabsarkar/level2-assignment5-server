@@ -26,8 +26,8 @@ const createMeetingRoom = catchAsync(async (req, res) => {
 // });
 
 const meetingRoom = catchAsync(async (req, res) => {
-  const { name } = req.query; // Extract 'name' from query string
-  const result = await MeetingRoomServices.meetingRoomFromDB(name as string); // Pass 'name' to the service
+  const query = req.query;
+  const result = await MeetingRoomServices.meetingRoomFromDB(query); // Pass 'name' to the service
 
   sendResponse(res, {
     statusCode: StatusCodes.OK,
