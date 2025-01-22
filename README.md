@@ -2,7 +2,7 @@ Project Setup: clone the repository open the project and open the terminal and i
 
 Project Name: Meeting Room Booking System for Co-working spaces
 
-Live URL:
+Live URL: https://asssignment-server-5.vercel.app/
 
 Features: Basically i implement signup and signin system and i implement user and admin system. user can booking room. user can see room details.
 
