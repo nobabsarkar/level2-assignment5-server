@@ -6,11 +6,6 @@ const createMeetingRoomIntoDB = async (payload: TMeetingRoom) => {
   return result;
 };
 
-// const meetingRoomFromDB = async () => {
-//   const result = await MeetingRoom.find();
-//   return result;
-// };
-
 const meetingRoomFromDB = async (query: Record<string, unknown>) => {
   const objQuery = { ...query };
 
